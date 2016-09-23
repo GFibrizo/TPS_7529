@@ -1,10 +1,20 @@
 import heapq
 
-def es_estadistico_orden_k(conjunto, candidato, k):
 
-    # TODO
-    print "Candidato: " + str(candidato) + "\tEstadistico de orden" + str(k) + ": " + str(elemento)
-    return candidato == elemento
+def es_estadistico_orden_k(conjunto, candidato, k):
+    
+    indice = conjunto.index(candidato)    
+    menores = []    
+#    mayores = []
+    for elem in conjunto:
+        if elem < candidato:
+            menores.append(elem)
+#        if elem > candidato:
+#            mayores.append(elem)
+
+
+    print "K: " + str(k) + "\tCant de menores: " + str(len(menores))
+    return k == len(menores)
 
 ################################################################################
 ################################################################################
