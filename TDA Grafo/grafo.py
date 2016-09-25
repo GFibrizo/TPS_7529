@@ -11,7 +11,7 @@ class Digraph:
 
   def __init__(self, V):
     """Construye un grafo sin aristas de V vértices."""
-    self.node_count = V
+    self.vertices = V
 
   def get_vertices(self):
     """Número de vértices en el grafo.
