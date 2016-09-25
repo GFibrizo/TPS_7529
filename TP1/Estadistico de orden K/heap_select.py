@@ -18,10 +18,9 @@ class MaxHeap(object):
 
 def obtener_estadistico_orden_k(conjunto, k):
     heap = MaxHeap([])
-    elemento = 0
     for elem in conjunto:
         if (len(heap) >= k+1) and elem < heap.top():
-            elemento = heap.pop()
+            heap.pop()
             heap.push(elem)
         elif len(heap) < k+1:
             heap.push(elem)
