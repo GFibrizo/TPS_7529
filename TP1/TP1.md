@@ -8,8 +8,6 @@
 
 Se implementa un verificador que dado un conjunto y un candidato devuelve un booleano indicando si el valor indicado es el k elemento más pequeño. El algoritmo de fuerza bruta itera todos los elementos del conjunto y verifica de a uno si es la solución. Una vez el verificador devuelve true, devuelve ese elemento.
 
----
-
 #### Orden de complejidad
 El orden del algoritmo descripto es: **O(N * K)**, siendo N la cantidad de elementos del conjunto y K la cantidad de elementos del candidate a ser estadístico de orden K, ya que para cada
 
