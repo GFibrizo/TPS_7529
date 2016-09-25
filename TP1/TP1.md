@@ -41,8 +41,6 @@ Al depender, el orden del algoritmo, unicamente del orden del algoritmo de orden
 
 El algoritmo de ordenamiento por selección busca el menor elemento de una secuencia y lo intercambia con el primero. Se propone realizar k selecciones para encontrar el k elemento más pequeño.
 
----
-
 #### Orden de complejidad
 El orden del algoritmo es de orden **O(N * K)** ya que se realizan K busquedas del mínimo de un segmento del conjunto.
 
@@ -52,18 +50,17 @@ El orden del algoritmo es de orden **O(N * K)** ya que se realizan K busquedas d
 
 Así como heapsort es una mejora del algoritmo de selección usando un heap, este algoritmo mejora el de k-selecciones haciendo k extracciones a un arreglo con la propiedad de heap.
 
----
-
 #### Orden de complejidad
 El orden del algoritmo es **O(K log N)**, ya que, si bien el heapify es de orden O(N), queda acotado el tiempo que insumen las K iteraciones en las cuales, en cada una realiza un pop del heap, operación que tarda log N (siendo N la cantidad de elementos del heap).
+
+#### Ejemplos de input
+El algoritmo k-heapsort depende directamente del orden de heapify (función para transformar una secuencia en un heap). Por ende, y como heapify no tiene mejor o peor caso, tampoco lo tiene k-heapsort.
 
 ---
 
 ### HeapSelect
 
 Se propone usar un heap para almacenar los k elementos más chicos, intercambiándolos cuando sea necesario.
-
----
 
 #### Orden de complejidad
 El orden del algorimo es **O(N log K)**, ya que se recorren todos los elementos del conjunto, y por cada iteración se realiza un push al heap y a veces un pop, que son operaciones de tiempo O(log K) siendo log K la altura del heap. 
@@ -73,8 +70,6 @@ El orden del algorimo es **O(N log K)**, ya que se recorren todos los elementos 
 ### QuickSelect
 
 Se usa una estrategia de división y conquista similar a la de quicksort pero descartando las divisiones que sabemos que no incluyen al k buscado.
-
----
 
 #### Orden de complejidad
 El orden del algoritmo es **O(N)**, ya que basta con recorrer una vez el conjunto para encontrar los menores al candidato, y otra vez para contar dicha cantidad (se puede optimizar, conservando el orden, pero recorriendo el conjunto 1 sola vez, contando la cantidad de elementos a la vez que se los clasifica).
