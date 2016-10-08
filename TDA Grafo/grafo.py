@@ -74,6 +74,13 @@ class Digraph:
     def agregar(self, nodo):
         self.aristas.update({nodo: []})
 
+    def obtener_arista(self, origen, destino):
+        aristas = self.adj_e(origen)
+        for arista in aristas:
+            if arista.dst == destino:
+                return arista
+        return
+
 
 class Arista:
     """Arista de un grafo."""
