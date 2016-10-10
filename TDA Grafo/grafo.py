@@ -79,7 +79,7 @@ class Digraph:
         for arista in aristas:
             if arista.dst == destino:
                 return arista
-        return
+        return None
 
 
 class Arista:
@@ -88,7 +88,7 @@ class Arista:
     def __init__(self, src, dst, weight):
         self.src = src
         self.dst = dst
-        self.weight = weight
+        self._weight = weight
 
     def src(self):
         return self.src
@@ -97,7 +97,7 @@ class Arista:
         return self.dst
 
     def weight(self):
-        return self.weight
+        return self._weight
 
 
 graph = Digraph(5)
