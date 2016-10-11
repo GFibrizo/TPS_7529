@@ -99,19 +99,25 @@ class Arista:
     def weight(self):
         return self._weight
 
+    def __str__(self):
+        return str(self.src)+"-->"+str(self.dst)
 
-graph = Digraph(5)
-graph.add_edge(3, 2, 5)
-graph.add_edge(1, 3, 5)
-graph.add_edge(3, 3, 5)
-graph.add_edge(1, 4, 7)
-graph.add_edge(2, 4, 7)
-graph.add_edge(2, 4, 4)
-graph.add_edge(2, 1, 7)
-vertices = graph.adj(2)
+    def __repr__(self):
+        return str(self.src) + "-->" + str(self.dst)
 
-print('Cantidad de aristas:' + str(graph.E()))
-print('Cantidad de vertices:' + str(graph.V()))
-print('Listado de vertices:' +str(graph.adj(1)))
-print('Listado de aristas:' + str(graph.adj_e(2)))
-print('Listado de aristas total:' + str(graph.iter_edges()))
+
+            #graph = Digraph(5)
+#graph.add_edge(3, 2, 5)
+#graph.add_edge(1, 3, 5)
+#graph.add_edge(3, 3, 5)
+#graph.add_edge(1, 4, 7)
+#graph.add_edge(2, 4, 7)
+#graph.add_edge(2, 4, 4)
+#graph.add_edge(2, 1, 7)
+#vertices = graph.adj(2)
+
+#print('Cantidad de aristas:' + str(graph.E()))
+#print('Cantidad de vertices:' + str(graph.V()))
+#print('Listado de vertices:' +str(graph.adj(1)))
+#print('Listado de aristas:' + str(graph.adj_e(2)))
+#print('Listado de aristas total:' + str(graph.iter_edges()))
