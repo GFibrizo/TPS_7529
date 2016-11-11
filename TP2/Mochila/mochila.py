@@ -1,6 +1,7 @@
-import calculador_mochila
 import csv
 import sys
+
+import calculador_mochila
 
 CONST_NOMBRE = 0
 CONST_N = 1
