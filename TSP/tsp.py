@@ -2,6 +2,7 @@
 
 import itertools
 import sys
+import time
 
 def read_distance_matrix(file_name):
     '''file_name: the name of a file that stores a matrix. Each line is a row
@@ -100,7 +101,14 @@ def tsp(file_name, origin):
     return (min_cost_result, min_path[::-1])
 
 if __name__ == '__main__':
+    time_start = time.time()
     min_cost, min_path = tsp(sys.argv[1], int(sys.argv[2]) - 1)
+    print "Total running time for file \"{}\" is {} seconds".format(sys.argv[1], time.time() - time_start) 
     print "The minimum cost is:", min_cost
     print "The most effective path is:", "->".join([str(x) for x in min_path])
+
+
+
+
+
 
