@@ -1,7 +1,7 @@
 def calcular_mochila(items, pesoMax):
     matrizDevolucion = []
     valores = [[0] * (pesoMax + 1)
-                  for i in xrange(len(items) + 1)]
+    for i in xrange(len(items) + 1)]
     for i, (valor, peso, id) in enumerate(items):
         i += 1
         for capacidad in xrange(pesoMax + 1):

@@ -2,6 +2,7 @@ import csv
 import sys
 
 import calculador_mochila
+import time
 
 CONST_NOMBRE = 0
 CONST_N = 1
@@ -9,6 +10,9 @@ CONST_C = 2
 CONST_Z = 3
 CONST_TIEMPO = 4
 CONST_PRIMERA_LINEA = 5
+CONST_ID = 0
+CONST_VALOR = 1
+CONST_PESO = 2
 CONST_SEPARADOR = "-----\n"
 if __name__ == '__main__':
     if len(sys.argv) != 3:
@@ -27,16 +31,20 @@ if __name__ == '__main__':
             listado = listado + 1
             items = []
             pesoMaximo = int(lineas[CONST_C + i].split(" ")[1])
+            tiempoTotalPisinger = float(lineas[CONST_TIEMPO + i].split(" ")[1])
+            valorMaxPisinger = int(lineas[CONST_Z + i].split(" ")[1])
             i = i + 5
             while(lineas[i] != CONST_SEPARADOR):
                 separada = lineas[i].split(",")
-                id = int(separada[0])
-                valor = int(separada[1])
-                peso = int(separada[2])
+                id = int(separada[CONST_ID])
+                valor = int(separada[CONST_VALOR])
+                peso = int(separada[CONST_PESO])
                 items.append([valor, peso, id])
                 i = i + 1
-            mejorValor, objetos = calculador_mochila.calcular_mochila(items, pesoMaximo)
-            spamwriter.writerow(["Mejor valor para listado numero {0}: {1} y peso maximo: {2}".format(listado, mejorValor, pesoMaximo)])
+            inicio = time.time()
+            mejorValorAlgoritmo, objetos = calculador_mochila.calcular_mochila(items, pesoMaximo)
+            tiempoAlgoritmo = time.time() - inicio
+            spamwriter.writerow(["Listado numero {0}, peso maximo: {1}".format(listado, pesoMaximo)])
             for valor, peso, id in objetos:
                  spamwriter.writerow(["Id:{2}, Valor: {0}, Peso: {1}".format(valor, peso, id)])
             i = i + 2
