@@ -48,6 +48,7 @@ if __name__ == '__main__':
             for valor, peso, id in objetos:
                  spamwriter.writerow(["Id:{2}, Valor: {0}, Peso: {1}".format(valor, peso, id)])
             i = i + 2
+            spamwriter.writerow(["El valor optimo conseguido por Pisinger es {0} y el tiempo {1} mientras que los valores conseguidos por el algoritmo fueron {2} y el tiempo {3}".format(valorMaxPisinger, tiempoTotalPisinger, mejorValorAlgoritmo, tiempoAlgoritmo)])
             spamwriter.writerow(["-------"])
 
 
