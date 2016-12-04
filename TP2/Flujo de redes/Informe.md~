@@ -1,0 +1,50 @@
+# Flujo de Redes
+
+El problema expuesto es una variación del problema de selección de proyectos que se comenta a continuación.
+
+### Introducción teórica: El Problema de Selección de proyectos
+
+En el problema de selección de proyectos, hay n proyectos y m equipos. Cada proyecto pi dá ingresos r(pi) y cada equipo qj cuesta c(qj) para la compra. Cada proyecto requiere una serie de equipos y cada equipo puede ser compartido por varios proyectos. El problema es determinar qué proyectos y equipos deben ser seleccionados y comprados respectivamente, de modo que el beneficio se maximice.
+
+Sea P el conjunto de proyectos no seleccionados y Q el conjunto de equipos comprados, entonces el problema puede ser formulado como,
+
+\max\{g\}=\sum _{i}r(p_{i})-\sum _{p_{i}\in P}r(p_{i})-\sum _{q_{j}\in Q}c(q_{j}).
+
+Dado que el primer término no depende de la selección de P y Q, este problema de maximización puede ser formulado como un problema de minimización en su lugar, es decir,
+
+\min\{g'\}=\sum _{p_{i}\in P}r(p_{i})+\sum _{q_{j}\in Q}c(q_{j}).
+
+El problema de minimización anterior puede entonces formularse como un problema de corte mínimo construyendo una red, donde la fuente está conectada a los proyectos con capacidad r(pi), y el sumidero está conectado por los equipos con capacidad c(qj). Se añade una arista (pi, qj) con capacidad infinita si el proyecto pi requiere equipo qj. El conjunto de corte s-t representa los proyectos y equipos en P y Q, respectivamente. Mediante el teorema de min-corte de flujo máximo, se puede resolver el problema como un problema de flujo máximo.
+
+La figura de la derecha da una formulación de red del siguiente problema de selección de proyecto:
+
+
+![flujo de redes](https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Max-flow_min-cut_project-selection.svg/220px-Max-flow_min-cut_project-selection.svg.png)
+
+
+   | Proyecto r(pi) | Equipamiento c(qj) | 
+---|---------------|-----------------|-------------------
+1  | 100 | 200 | El Proyecto 1 requiere equipamiento 1 y 2.
+2  | 200 | 100 | El Proyecto 2 requiere equipamiento 2.
+3  | 150 | 50  | El Proyecto 3 requiere equipamiento 3.
+
+
+La capacidad mínima de un corte s-t es de 250 y la suma de los ingresos de cada proyecto es de 450; Por lo tanto el beneficio máximo g es 450 - 250 = 200, seleccionando los proyectos p2 y p3.
+
+La idea aquí es hacer "fluir" las ganancias del proyecto a través de los "pipes" del equipo. Si no podemos llenar el pipe, el retorno del equipo es menor que su costo, y el algoritmo de corte mínimo lo encontrará más barato para cortar la arista del beneficio del proyecto en lugar de la arista del costo del equipo.
+
+
+
+## Complejidad
+
+Cuando las capacidades de las aristas del grafo son enteros, el algoritmo de Ford-Fulkerson tiene un orden de complejidad de O(E * f), donde E es el número de aristas y f es el flujo máximo en el grafo. Esto se debe a que cada ruta de aumento se puede encontrar en el tiempo O(E) y aumenta el flujo en una cantidad entera de al menos 1.
+
+Siendo esto así, se tiene que el algoritmo utilizado para resolver el problema de selección de proyectos usa primero ford-fulkerson para encontrar el flujo máximo y el grafo residual, y luego un recorrido (en nuestro caso DFS) para encontrar todos los vertices dentro del primer grupo del corte mínimo.
+
+Esto da como orden total: O(E * f) + O(V + E)
+
+Lo cual queda acotado por: O(V + (E * f))
+
+Luego, llevando las variables V, E y f al dominio del problema presentado:
+
+O( (P+R) + (
