@@ -46,10 +46,11 @@ if __name__ == '__main__':
             tiempoAlgoritmo = time.time() - inicio
             spamwriter.writerow(["Listado numero {0}, peso maximo: {1}".format(listado, pesoMaximo)])
             for id in objetos:
-                 spamwriter.writerow(["Id:{2}, Valor: {0}, Peso: {1}".format(items[0], items[1], id)])
+                spamwriter.writerow(["Id:{2}, Valor: {0}, Peso: {1}".format(items[id][0], items[id][1], id)])
             i = i + 2
             spamwriter.writerow(["El valor optimo conseguido por Pisinger es {0} y el tiempo {1} mientras que los valores conseguidos por el algoritmo fueron {2} y el tiempo {3}".format(valorMaxPisinger, tiempoTotalPisinger, mejorValorAlgoritmo, tiempoAlgoritmo)])
             spamwriter.writerow(["-------"])
+            print str(pesoMaximo) + "," + str(tiempoAlgoritmo)
 
 
 
